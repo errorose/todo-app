@@ -1,0 +1,73 @@
+@import './reset';
+@import './utils';
+@import './variables';
+
+body{
+    background-color: rgb(232, 230, 230);
+}
+
+.App{
+    position: absolute;
+    @include center;
+    width: 500px;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+.AddTodo{
+    @include flex-center;
+    margin: 20px 0;
+    input{
+        border: none;
+        border-bottom: 2px solid $addTodo-border-color;
+        width: 50%;
+        padding: 5px 0;
+        margin-right: 20px;
+    }
+    button{
+        border: none;
+        color: $addBtn-color;
+        background-color: $addBtn-bg;
+        border-radius: 5px;
+        width: 50px;
+        &:hover{
+            background-color: $addBtn-hover;
+            transition: .3s;
+        }
+    }
+}
+
+.TodoBox{
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    .Todo{
+        @include flex-center;
+        gap: 5px 0;
+        input{
+            border: none;
+            border-bottom: 2px solid $todo-border-color;
+            // width: 70%;
+            padding: 5px 0;
+            margin-right: 20px;
+        }
+        button{
+            border: none;
+            color:$todoBtn-color;
+            background-color: $todoBtn-bg;
+            border-radius: 5px;
+            width: 50px;
+            &:hover{
+                background-color: $todoBtn-hover;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+
+
+
+

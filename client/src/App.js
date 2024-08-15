@@ -43,10 +43,12 @@ function App() {
   return (
     <div className="App">
       <AddTodo addItem={addItem}/>
-      {todoItems.map((item) => {
-        // console.log('item >> ', item); // {id: 1, title: 'my todo1', done: false}
-        return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
-      })}
+      <div className='TodoBox'>
+        {todoItems.map((item) => {
+          // console.log('item >> ', item); // {id: 1, title: 'my todo1', done: false}
+          return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
+        })}
+      </div>
     </div>
   );
 }

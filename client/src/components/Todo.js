@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import '../styles/Todo.scss';
 
 export default function Todo({item, deleteItem}) {
     console.log('item >> ', item); // {id: 1, title: 'my todo1', done: false}
