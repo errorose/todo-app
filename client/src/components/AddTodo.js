@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../styles/AddTodo.scss';
-import axios from 'axios';
 
 export default function AddTodo({addItem}) {
     const [todoItem, setTodoItem] = useState({
@@ -17,10 +16,7 @@ export default function AddTodo({addItem}) {
     // 과제 1) add enter키로 실행.
     const enterhandle = (e) => {
         if(e.key === 'Enter'){
-            addItem(todoItem);
-            setTodoItem({
-                title: '', // 상태 초기화.
-            })
+            onButtonClick();
         }
     }
 

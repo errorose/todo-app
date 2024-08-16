@@ -28,9 +28,10 @@ function App() {
   // - Read API
   useEffect(() => {
     console.log('첫 렌더링 완료!!!');
+    console.log('process.env.REACT_APP_DB_HOST >> ', process.env.REACT_APP_DB_HOST);
 
     const getTodos = async () => {
-      let res = await axios.get('http://localhost:8080/api/todos');
+      let res = await axios.get(`${process.env.REACT_APP_DB_HOST}/api/todos`);
       setTodoItems(res.data);
     }
 
@@ -40,7 +41,7 @@ function App() {
   // [백엔드, 프론트 API 연결] 
   // - Create API
   const addItem = async (newItem) => {
-    const res = await axios.post('http://localhost:8080/api/todo', newItem);
+    const res = await axios.post(`${process.env.REACT_APP_DB_HOST}/api/todo`, newItem);
     setTodoItems([...todoItems, res.data]);
   }
 
@@ -49,7 +50,7 @@ function App() {
   const deleteItem = async (targetItem) => { 
     console.log('targetItem >> ', targetItem);
     
-    await axios.delete(`http://localhost:8080/api/todo/${targetItem.id}`);
+    await axios.delete(`${process.env.REACT_APP_DB_HOST}/api/todo/${targetItem.id}`);
     const newTodoItems = todoItems.filter((e) => {
       return e.id !== targetItem.id;
     });
@@ -67,7 +68,7 @@ function App() {
   const updateItem = async (targetItem) => {
     console.log('targetItem >> ', targetItem);
 
-    await axios.patch(`http://localhost:8080/api/todo/${targetItem.id}`, targetItem);
+    await axios.patch(`${process.env.REACT_APP_DB_HOST}/api/todo/${targetItem.id}`, targetItem);
   }
 
   // AddTodo 컴포넌트는 상위 컴포넌트 items에 접근 불가능.
