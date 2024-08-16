@@ -93,7 +93,7 @@ function App() {
     const res = await axios.patch(`${process.env.REACT_APP_DB_HOST}/api/todo/${targetItem.id}`, targetItem);
 
     if(res.status === 200){
-      // 업데이트 상태 or 기타 여러분들이 원하는대로 코드 작성.
+      // 업데이트 상태 or 기타 원하는대로 코드 작성.
     }else{
       console.error('Failed to update item');
     }
