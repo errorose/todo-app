@@ -1,71 +1,43 @@
-@import './reset';
-@import './utils';
-@import './variables';
+@import './utils.scss';
 
-body{
-    background-color: rgb(232, 230, 230);
+.Todo {
+  padding: 8px 24px;
+  display: flex;
+
+  input[type='checkbox'] {
+    width: 24px;
+    height: 24px;
+    margin: auto 0;
+    // accent-color: red;
+  }
+
+  input[type='checkbox']:checked {
+    // background-color: #ff8955;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  input[type='text'] {
+    @include input($color-secondary-200);
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  button {
+    @include button($color-secondary-200, $color-secondary-400);
+  }
 }
 
-.App{
-    position: absolute;
-    @include center;
-    width: 500px;
-    height: 100%;
-    background-color: #fff;
-    border: 1px solid #fff;
-    box-sizing: border-box;
-}
 
-.AddTodo{
-    @include flex-center;
-    margin: 20px 0;
-    input{
-        border: none;
-        border-bottom: 2px solid $addTodo-border-color;
-        width: 50%;
-        padding: 5px 0;
-        margin-right: 20px;
-    }
-    button{
-        border: none;
-        color: $addBtn-color;
-        background-color: $addBtn-bg;
-        border-radius: 5px;
-        width: 50px;
-        &:hover{
-            background-color: $addBtn-hover;
-            transition: .3s;
-        }
-    }
-}
 
-.TodoBox{
-    display: flex;
-    flex-direction: column;
-    gap: 10px 0;
-    .Todo{
-        @include flex-center;
-        gap: 5px 0;
-        input{
-            border: none;
-            border-bottom: 2px solid $todo-border-color;
-            // width: 70%;
-            padding: 5px 0;
-            margin-right: 20px;
-        }
-        button{
-            border: none;
-            color:$todoBtn-color;
-            background-color: $todoBtn-bg;
-            border-radius: 5px;
-            width: 50px;
-            &:hover{
-                background-color: $todoBtn-hover;
-                transition: .3s;
-            }
-        }
-    }
-}
+
+
+
+
+
+
+
+
 
 
 

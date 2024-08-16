@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Todo.scss';
 
-export default function Todo({item, deleteItem}) {
-    console.log('item >> ', item); // {id: 1, title: 'my todo1', done: false}
+export default function Todo({item, deleteItem, updateItem}) {
+    // console.log('item >> ', item); // {id: 1, title: 'my todo1', done: false}
 
     const [todoItem, setTodoItem] = useState(item);
     const [readOnly, setReadOnly] = useState(true);
@@ -20,6 +20,7 @@ export default function Todo({item, deleteItem}) {
     const enterKeyEventHandler = (e) => {
         if(e.key === 'Enter'){
             setReadOnly(true);
+            updateItem(todoItem); // 수정 1 - 엔터 누르면 저장
         }
     }
 
@@ -37,15 +38,26 @@ export default function Todo({item, deleteItem}) {
 
     // checkbox 업데이트
     const checkboxEventHandler = (e) => {
+        // rest: id, title 정보
         const {done, ...rest} = todoItem;
-        setTodoItem({
+
+        const updatedItem = {
             done: e.target.checked,
             ...rest,
-        });
-        console.log('e.target.checked >> ', e.target.checked);
+        }
+        // console.log('e.target.checked >> ', e.target.checked);
+
+        setTodoItem(updateItem);
+        updateItem(updatedItem); // 수정 2 = 체크 박스 변경시 저장 
+        
+        // setTodoItem({
+        //     done: e.target.checked,
+        //     ...rest,
+        // });
+        // console.log('e.target.checked >> ', e.target.checked);
     }
 
-    console.log('todoItem >> ', todoItem);
+    // console.log('todoItem >> ', todoItem);
 
   return (
     <div className='Todo'>

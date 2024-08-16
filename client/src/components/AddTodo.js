@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import '../styles/AddTodo.scss';
+import axios from 'axios';
 
 export default function AddTodo({addItem}) {
     const [todoItem, setTodoItem] = useState({
